@@ -6,6 +6,9 @@ const playerMessageEl = document.getElementById("player-message");
 const backBarVertEl = document.getElementById("vertical-back-bar");
 const winnerBarVertEl = document.getElementById("vertical-winner-bar");
 const sliderVertEl = document.getElementById("vertical-slider");
+const backBarHorEl = document.getElementById("horizontal-back-bar");
+const winnerBarHorEl = document.getElementById("horizontal-winner-bar");
+const sliderHorEl = document.getElementById("horizontal-slider");
 const headerEl = document.getElementById("header");
 const stickManEl = document.getElementById("image");
 
@@ -47,11 +50,14 @@ let failure = false;
 let stageCompleted = [];
 let highScore;
 let currentLevel;
-let currentStage = 1;
+let currentStage;
 let weightLevels = []; //each knew level pushes a new weight onto the array
-let backBarPos = backBarVertEl.getBoundingClientRect();
-let winnerBarPos = winnerBarVertEl.getBoundingClientRect();
-let sliderPos = sliderVertEl.getBoundingClientRect();
+let vertBackBarPos = backBarVertEl.getBoundingClientRect();
+let vertWinnerBarPos = winnerBarVertEl.getBoundingClientRect();
+let vertSliderPos = sliderVertEl.getBoundingClientRect();
+let horBackBarPos = backBarHorEl.getBoundingClientRect();
+let horWinnerBarPos = winnerBarHorEl.getBoundingClientRect();
+let horSliderPos = sliderHorEl.getBoundingClientRect();
 let moveForward = true;
 let started = -1; //variable to begin the game. -1 is not started and 1 is started
 
@@ -70,20 +76,20 @@ resetButtonEl.addEventListener("click", function () {
 reset();
 //----------Animation Functions--------//
 function moverUpDown() {
-  sliderPos = sliderVertEl.getBoundingClientRect();
-  backBarPos = backBarVertEl.getBoundingClientRect();
+  vertSliderPos = sliderVertEl.getBoundingClientRect();
+  vertBackBarPos = backBarVertEl.getBoundingClientRect();
 
   if (moveForward === true) {
-    let moveSlider = sliderPos.top;
-    if (sliderPos.top <= backBarPos.top) {
+    let moveSlider = vertSliderPos.top;
+    if (vertSliderPos.top <= vertBackBarPos.top) {
       moveForward = false;
     } else {
       moveSlider = moveSlider - 6;
       sliderVertEl.style.top = moveSlider + "px";
     }
   } else {
-    moveSlider = sliderPos.bottom;
-    if (sliderPos.bottom >= backBarPos.bottom) {
+    moveSlider = vertSliderPos.bottom;
+    if (vertSliderPos.bottom >= vertBackBarPos.bottom) {
       moveForward = true;
     } else {
       moveSlider = moveSlider + 1;
@@ -93,12 +99,12 @@ function moverUpDown() {
 }
 
 function moverUpOnly() {
-  sliderPos = sliderVertEl.getBoundingClientRect();
-  backBarPos = backBarVertEl.getBoundingClientRect();
+  vertSliderPos = sliderVertEl.getBoundingClientRect();
+  vertBackBarPos = backBarVertEl.getBoundingClientRect();
 
   if (moveForward === true) {
-    let moveSlider = sliderPos.top;
-    if (sliderPos.top <= backBarPos.top) {
+    let moveSlider = vertSliderPos.top;
+    if (vertSliderPos.top <= vertBackBarPos.top) {
       moveForward = false;
     } else {
       moveSlider = moveSlider - 6;
@@ -112,23 +118,23 @@ function moverUpOnly() {
 }
 
 function moverLeftRight() {
-  sliderPos = sliderVertEl.getBoundingClientRect();
+  horSliderPos = sliderHorEl.getBoundingClientRect();
 
   if (moveForward === true) {
-    let moveSlider = sliderPos.right;
-    if (sliderPos.right > backBarPos.right) {
+    let moveSlider = horSliderPos.right;
+    if (horSliderPos.right > horBackBarPos.right) {
       moveForward = false;
     } else {
-      moveSlider = moveSlider + 1;
-      sliderVertEl.style.left = moveSlider + "px";
+      moveSlider = moveSlider - 1;
+      sliderHorEl.style.left = moveSlider + "px";
     }
   } else {
-    moveSlider = sliderPos.left;
-    if (sliderPos.left < backBarPos.left) {
+    moveSlider = horSliderPos.left;
+    if (horSliderPos.left < horBackBarPos.left) {
       moveForward = true;
     } else {
       moveSlider = moveSlider - 6;
-      sliderVertEl.style.left = moveSlider + "px";
+      sliderHorEl.style.left = moveSlider + "px";
     }
   }
 }
@@ -136,11 +142,11 @@ function moverLeftRight() {
 let upArrow = (event) => {
   if (event.code === "ArrowUp" && currentStage !== 5) {
     clearInterval(moveIntervalCaller);
-    sliderPos = sliderVertEl.getBoundingClientRect();
-    winnerBarPos = winnerBarVertEl.getBoundingClientRect();
+    vertSliderPos = sliderVertEl.getBoundingClientRect();
+    vertWinnerBarPos = winnerBarVertEl.getBoundingClientRect();
     if (
-      winnerBarPos.bottom > sliderPos.bottom &&
-      sliderPos.top > winnerBarPos.top
+      vertWinnerBarPos.bottom > vertSliderPos.bottom &&
+      vertSliderPos.top > vertWinnerBarPos.top
     ) {
       currentStage += 1;
       document.removeEventListener("keyup", upArrow);
@@ -165,11 +171,11 @@ let downArrow = (event) => {
     gameInit();
   } else if (event.code === "ArrowDown" && currentStage === 5) {
     clearInterval(moveIntervalCaller);
-    sliderPos = sliderVertEl.getBoundingClientRect();
-    winnerBarPos = winnerBarVertEl.getBoundingClientRect();
+    vertSliderPos = sliderVertEl.getBoundingClientRect();
+    vertWinnerBarPos = winnerBarVertEl.getBoundingClientRect();
     if (
-      winnerBarPos.bottom > sliderPos.bottom &&
-      sliderPos.top > winnerBarPos.top
+      vertWinnerBarPos.bottom > vertSliderPos.bottom &&
+      vertSliderPos.top > vertWinnerBarPos.top
     ) {
       currentStage += 1;
       document.removeEventListener("keyup", downArrow);
@@ -183,15 +189,57 @@ let downArrow = (event) => {
   }
 };
 
+let leftArrow = (event) => {
+  if (event.code === "ArrowLeft") {
+    clearInterval(moveIntervalCaller);
+    horSliderPos = sliderHorEl.getBoundingClientRect();
+    horWinnerBarPos = winnerBarHorEl.getBoundingClientRect();
+    if (
+      horWinnerBarPos.left < horSliderPos.left &&
+      horSliderPos.right < horWinnerBarPos.right
+    ) {
+      currentStage += 1;
+      document.removeEventListener("keyup", leftArrow);
+      gameInit();
+    } else {
+      document.removeEventListener("keyup", leftArrow);
+      failure = true;
+      gameInit();
+    }
+  }
+};
+
+let rightArrow = (event) => {
+  if (event.code === "ArrowRight") {
+    clearInterval(moveIntervalCaller);
+    horSliderPos = sliderHorEl.getBoundingClientRect();
+    horWinnerBarPos = winnerBarHorEl.getBoundingClientRect();
+    if (
+      horWinnerBarPos.left < horSliderPos.left &&
+      horSliderPos.right < horWinnerBarPos.right
+    ) {
+      currentStage += 1;
+      document.removeEventListener("keyup", rightArrow);
+      gameInit();
+    } else {
+      document.removeEventListener("keyup", rightArrow);
+      failure = true;
+      gameInit();
+    }
+  }
+};
 //----Init function-----
 
 function gameInit() {
   if (started === 1) {
     moveIntervalCaller = null;
-    backBarPos = backBarVertEl.getBoundingClientRect();
-    sliderVertEl.style.bottom = backBarPos.bottom + "px";
-    sliderVertEl.style.top = backBarPos.bottom - 5 + "px";
-    sliderVertEl.style.left = backBarPos.left + "px";
+    vertBackBarPos = backBarVertEl.getBoundingClientRect();
+    sliderVertEl.style.bottom = vertBackBarPos.bottom + "px";
+    sliderVertEl.style.top = vertBackBarPos.bottom - 5 + "px";
+    sliderVertEl.style.left = vertBackBarPos.left + "px";
+    // sliderHorEl.style.bottom = vertBackBarPos.bottom + "px";
+    // sliderHorEl.style.top = vertBackBarPos.bottom - 5 + "px";
+    // sliderHorEl.style.left = vertBackBarPos.left + "px";
     clearInterval(moveIntervalCaller);
     console.log("current stage is: " + currentStage);
 
@@ -203,7 +251,6 @@ function gameInit() {
     } else if (failure === false && currentStage === 2) {
       //stage 2
       console.log("current stage is: " + currentStage);
-
       stageTwo();
     } else if (failure === false && currentStage === 3) {
       //stage 3
@@ -265,21 +312,21 @@ function reset() {
 function stageOne() {
   stickManEl.setAttribute("src", imgArray[0].src);
   playerMessageEl.innerHTML =
-    "Let's Begin!<br>Press the UP arrow to stop the slider";
+    "Press the UP arrow to stop the slider";
   moveIntervalCaller = setInterval(moverUpDown, 100);
   document.addEventListener("keyup", upArrow);
 }
 function stageTwo() {
   stickManEl.setAttribute("src", imgArray[1].src);
   playerMessageEl.innerHTML =
-    "Keep Going!<br>Press the UP arrow to stop the slider";
+    "Press the UP arrow to stop the slider";
   moveIntervalCaller = setInterval(moverUpDown, 100);
   document.addEventListener("keyup", upArrow);
 }
 function stageThree() {
   stickManEl.setAttribute("src", imgArray[2].src);
   playerMessageEl.innerHTML =
-    "Almost There<br>Press the UP arrow to stop the slider";
+    "Press the UP arrow to stop the slider";
   moveIntervalCaller = setInterval(moverUpDown, 100);
   document.addEventListener("keyup", upArrow);
 }
@@ -287,19 +334,23 @@ function stageFour() {
   console.log("stageFour");
   stickManEl.setAttribute("src", imgArray[3].src);
   playerMessageEl.innerHTML =
-    "Nice Job!<br>Press the Down Arrow to lock it out";
+    "Press the Down Arrow to lock it out";
   document.addEventListener("keyup", downArrow);
 }
 function stageFive() {
   console.log("stageFive");
   stickManEl.setAttribute("src", imgArray[4].src);
   playerMessageEl.innerHTML =
-    "Here's the toughest part<br>Press the Up Arrow to toss the weight, and the Down Arrow to catch it";
+    "Press the Up Arrow to toss the weight, and the Down Arrow to catch it";
   document.addEventListener("keyup", upArrow);
 }
 function stageSix() {
   console.log("stageSix");
   stickManEl.setAttribute("src", imgArray[6].src);
+  playerMessageEl.innerHTML =
+  "Press the Left Arrow to lift it over your head";
+  moveIntervalCaller = setInterval(moverLeftRight, 100);
+  document.addEventListener("keyup", leftArrow);
 }
 function stageSeven() {
   console.log("stageSeven");
