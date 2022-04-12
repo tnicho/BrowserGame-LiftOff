@@ -28,7 +28,9 @@ header{
 #high-weight-group{
     grid-area: hsg;
     border: solid 2px black;
-    margin: 70px;
+    margin: auto;
+    width: 50%;
+    height: 50%;
 }
 
 #high-weight-label{
@@ -54,7 +56,9 @@ header{
     grid-area: csg;
     border: solid 2px black;
     background-color: white;
-    margin: 70px;
+    margin: auto;
+    width: 50%;
+    height: 50%;
 }
 #current-weight-label{
     border: solid 2px black;
@@ -69,6 +73,7 @@ header{
 
 #current-weight{
     border: solid 2px black;
+    background-color: white;
     height: 50%;
     display: flex;
     justify-content: center;
@@ -82,7 +87,9 @@ header{
     background-color: white;
     font-size: larger;
     font-weight: bold;
-    margin: 70px;
+    margin: auto;
+    height: 50%;
+    width: 50%;
 }
 
 #game-area{
@@ -176,9 +183,6 @@ header{
     align-items: center;
     justify-content: center;
 }
-
-
-
 #message-box{
     grid-area: mes-box;
     display: flex;
@@ -187,4 +191,5 @@ header{
     font-size: 30px;
     justify-content: center;
 }
+
 

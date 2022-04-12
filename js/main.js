@@ -64,7 +64,7 @@ let stageCompleted = [];
 let highLevel = 0;
 let highWeight = 0;
 let currentLevel;
-let currentWeight;
+let currentWeight = 45;
 let currentStage;
 let weightLevels = []; //each knew level pushes a new weight onto the array
 let vertBackBarPos = backBarVertEl.getBoundingClientRect();
@@ -265,13 +265,11 @@ let rightArrow = (event) => {
 //----Init function-----
 
 function gameInit() {
-  debugger; 
   countdownEl.style.visibility ='hidden'
   horSlideBoxEl.style.visibility = "hidden"
   vertSlideBoxEl.style.visibility = 'hidden'
   winnerBarHorLeftEl.style.visibility = 'hidden'
   winnerBarHorRightEl.style.visibility = 'hidden'
-  debugger;
   if (started === 1) {
     currentWeight = (50 + (25*currentLevel)) + 'lbs';
     currentWeightEl.innerHTML = currentWeight
@@ -349,7 +347,7 @@ function reset() {
   currentStage = 1;
   failure = false;
   playerMessageEl.innerHTML = "Welcome! Press the START button to begin";
-  currentWeightEl.innerHTML = currentLevel;
+  currentWeightEl.innerHTML = currentWeight;
   stickManEl.setAttribute("src", imgArray[0].src);
   clearInterval(moveIntervalCaller); //Reset stick figures array with currentStage
   gameInit()
