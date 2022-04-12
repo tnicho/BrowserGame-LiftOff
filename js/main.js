@@ -62,7 +62,8 @@ let horRightWinnerBarPos = winnerBarHorRightEl.getBoundingClientRect();
 let horSliderPos = sliderHorEl.getBoundingClientRect();
 let moveForward = true;
 let started = -1; //variable to begin the game. -1 is not started and 1 is started
-
+let vertWinBarStartHeight = 80;
+let horWinBarStartWidth = 80;
 /*----- cached element references -----*/
 
 /*----- event listeners -----*/
@@ -160,7 +161,7 @@ let upArrow = (event) => {
     }
   } else if (event.code === "ArrowUp" && currentStage === 5) {
     stickManEl.setAttribute("src", imgArray[5].src);
-    moveIntervalCaller = setInterval(moverUpOnly, 50);
+    moveIntervalCaller = setInterval(moverUpOnly, (50-(5*currentLevel)));
     document.removeEventListener("keyup", upArrow);
     document.addEventListener("keyup", downArrow);
   }
@@ -234,64 +235,52 @@ let rightArrow = (event) => {
 
 function gameInit() {
   if (started === 1) {
+    currentScoreEl.innerHTML = `Current Level is: ${currentLevel}`
     moveIntervalCaller = null;
     vertBackBarPos = backBarVertEl.getBoundingClientRect();
     sliderVertEl.style.bottom = vertBackBarPos.bottom + "px";
     sliderVertEl.style.top = vertBackBarPos.bottom - 5 + "px";
     sliderVertEl.style.left = vertBackBarPos.left + "px";
+    winnerBarVertEl.style.height = (vertWinBarStartHeight - (5*currentLevel)) + 'px';
+    winnerBarHorLeftEl.style.width = (horWinBarStartWidth - (5*currentLevel)) + 'px';
+    winnerBarHorRightEl.style.width = (horWinBarStartWidth - (5*currentLevel)) + 'px';
 
     clearInterval(moveIntervalCaller);
-    console.log("current stage is: " + currentStage);
 
     console.log("started is " + started);
     if (failure === false && currentStage === 1) {
       //Stage 1
-      console.log("stage 1");
       stageOne();
     } else if (failure === false && currentStage === 2) {
       //stage 2
-      console.log("current stage is: " + currentStage);
       stageTwo();
     } else if (failure === false && currentStage === 3) {
       //stage 3
-      console.log("current stage is: " + currentStage);
       stageThree();
     } else if (failure === false && currentStage === 4) {
       //stage 4
-      console.log("current stage is: " + currentStage);
       stageFour();
     } else if (failure === false && currentStage === 5) {
       //stage 5
-      console.log("current stage is: " + currentStage);
       stageFive();
     } else if (failure === false && currentStage === 6) {
       //stage 6
-      console.log("current stage is: " + currentStage);
       stageSix();
     } else if (failure === false && currentStage === 7) {
       //stage 7
-      console.log("current stage is: " + currentStage);
       stageSeven();
     } else if (failure === false && currentStage === 8) {
       //stage 8
-      console.log("current stage is: " + currentStage);
       stageEight();
     } else if (failure === false && currentStage === 9) {
       //stage 9
-      console.log("current stage is: " + currentStage);
       stageNine();
     } else if (failure === false && currentStage === 10) {
       //stage 10
-      console.log("current stage is: " + currentStage);
       stageTen();
     } else if (failure === false && currentStage === 11) {
       //stage 11
-      console.log("current stage is: " + currentStage);
       stageEleven();
-    } else if (failure === false && currentStage === 12) {
-      //stage 12
-      console.log("current stage is: " + currentStage);
-      stageTwelve();
     } else {
       stageFailure();
     }
@@ -313,87 +302,80 @@ function stageOne() {
   stickManEl.setAttribute("src", imgArray[0].src);
   playerMessageEl.innerHTML =
     "Press the UP arrow to stop the slider";
-  moveIntervalCaller = setInterval(moverUpDown, 50);
+  moveIntervalCaller = setInterval(moverUpDown, (50-(5*currentLevel)));
   document.addEventListener("keyup", upArrow);
 }
 function stageTwo() {
   stickManEl.setAttribute("src", imgArray[1].src);
   playerMessageEl.innerHTML =
     "Press the UP arrow to stop the slider";
-  moveIntervalCaller = setInterval(moverUpDown, 50);
+  moveIntervalCaller = setInterval(moverUpDown, (50-(5*currentLevel)));
   document.addEventListener("keyup", upArrow);
 }
 function stageThree() {
   stickManEl.setAttribute("src", imgArray[2].src);
   playerMessageEl.innerHTML =
     "Press the UP arrow to stop the slider";
-  moveIntervalCaller = setInterval(moverUpDown, 50);
+  moveIntervalCaller = setInterval(moverUpDown, (50-(5*currentLevel)));
   document.addEventListener("keyup", upArrow);
 }
 function stageFour() {
-  console.log("stageFour");
   stickManEl.setAttribute("src", imgArray[3].src);
   playerMessageEl.innerHTML =
     "Press the Down Arrow to lock it out";
   document.addEventListener("keyup", downArrow);
 }
 function stageFive() {
-  console.log("stageFive");
   stickManEl.setAttribute("src", imgArray[4].src);
   playerMessageEl.innerHTML =
     "Press the Up Arrow to toss the weight, and the Down Arrow to catch it";
   document.addEventListener("keyup", upArrow);
 }
 function stageSix() {
-  console.log("stageSix");
   stickManEl.setAttribute("src", imgArray[6].src);
   playerMessageEl.innerHTML =
   "Press the Left Arrow to lift it over your head";
   moveForward = false;
-  moveIntervalCaller = setInterval(moverLeftRight, 50);
+  moveIntervalCaller = setInterval(moverLeftRight, (50-(5*currentLevel)));
   document.addEventListener("keyup", leftArrow);
 }
 function stageSeven() {
-  console.log("stageSeven");
   stickManEl.setAttribute("src", imgArray[7].src);
   playerMessageEl.innerHTML =
   "Press the Right Arrow to lift it over your head";
   moveForward = true;
-  moveIntervalCaller = setInterval(moverLeftRight, 50);
+  moveIntervalCaller = setInterval(moverLeftRight, (50-(5*currentLevel)));
   document.addEventListener("keyup", rightArrow);
 }
 function stageEight() {
-  console.log("stageEight");
   stickManEl.setAttribute("src", imgArray[8].src);
   playerMessageEl.innerHTML =
   "Press the Left Arrow to lift it over your head";
   moveForward = false;
-  moveIntervalCaller = setInterval(moverLeftRight, 50);
+  moveIntervalCaller = setInterval(moverLeftRight, (50-(5*currentLevel)));
   document.addEventListener("keyup", leftArrow);
 }
 function stageNine() {
-  console.log("stageNine");
   stickManEl.setAttribute("src", imgArray[9].src);
   playerMessageEl.innerHTML =
   "Press the Right Arrow to lift it over your head";
   moveForward = true;
-  moveIntervalCaller = setInterval(moverLeftRight, 50);
+  moveIntervalCaller = setInterval(moverLeftRight, (50-(5*currentLevel)));
   document.addEventListener("keyup", rightArrow);
 }
 function stageTen() {
-  console.log("stageTen");
   stickManEl.setAttribute("src", imgArray[10].src);
   playerMessageEl.innerHTML =
     "Press the Down Arrow to lock it out";
   document.addEventListener("keyup", downArrow);
 }
 function stageEleven() {
-  console.log("stageEleven");
   stickManEl.setAttribute("src", imgArray[11].src);
   playerMessageEl.innerHTML =
   "Congratulations! Let's try more weight";
   setTimeout(function () {
     currentStage = 1
+    currentLevel++
     gameInit()
   }, 5000);
 }
