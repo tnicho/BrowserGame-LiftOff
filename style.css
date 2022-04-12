@@ -86,13 +86,20 @@ header{
     width: 400px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
-#horizontal-winner-bar{
+#horizontal-left-winner-bar{
     border: solid 2px black;
     height: 80px;
     width: 80px;
-    background-color: red;
+    background-color: blue;
+}
+
+#horizontal-right-winner-bar{
+        border: solid 2px black;
+        height: 80px;
+        width: 80px;
+        background-color: purple;
 }
 #horizontal-slider{
     position: absolute;
