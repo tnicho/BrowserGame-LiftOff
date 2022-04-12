@@ -9,7 +9,7 @@
     grid-template-rows: 1fr 2fr 2fr 2fr;
     grid-template-areas: 
     "hdr hdr hdr"
-    "hsg gamearea vert-sbox"
+    "hsg gamearea cntdwn"
     "csg gamearea vert-sbox"
     "rbutton gamearea vert-sbox";
     height: 95vh;
@@ -106,6 +106,15 @@ header{
     background-color: black;
     height: 80px;
     width: 5px;
+}
+
+#countdown{
+    grid-area: cntdwn;
+    display: flex;
+    font-size: 200px;
+    font-style: Bold;
+    align-items: center;
+    justify-content: center;
 }
 
 #vertical-slider-box {
