@@ -61,7 +61,7 @@ let counter;
 let moveIntervalCaller;
 let failure = false;
 let stageCompleted = [];
-let highScore = 0;
+let highLevel = 0;
 let highWeight = 0;
 let currentLevel;
 let currentWeight;
@@ -273,7 +273,7 @@ function gameInit() {
   winnerBarHorRightEl.style.visibility = 'hidden'
   debugger;
   if (started === 1) {
-    currentWeight = (45 + (20*currentLevel)) + 'lbs';
+    currentWeight = (50 + (25*currentLevel)) + 'lbs';
     currentWeightEl.innerHTML = currentWeight
     counter = counterStart;
     countdownEl.innerHTML = counter;
@@ -433,12 +433,12 @@ function stageTen() {
 function stageEleven() {
   stickManEl.setAttribute("src", imgArray[11].src);
   playerMessageEl.innerHTML =
-  "Congratulations! Let's add 20lbs and try again";
+  "Congratulations! Let's add 25lbs and try again";
   setTimeout(function () {
     currentStage = 1
     currentLevel++
     gameInit()
-  }, 5000);
+  }, 4000);
 }
 
 function stageFailure() {
@@ -447,8 +447,8 @@ function stageFailure() {
   "OOOOF! That looks like it hurt";
   stickManEl.setAttribute("src", imgArray[12].src);
   setTimeout(function () {
-    if(currentLevel > highScore){
-      highScore = currentLevel
+    if(currentLevel > highLevel){
+      highLevel = currentLevel - 1
       highWeight = currentWeight
       highWeightEl.innerHTML = highWeight;
     }

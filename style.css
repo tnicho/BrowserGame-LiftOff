@@ -104,7 +104,7 @@ header{
 
 #horizontal-back-bar{
     border: solid 2px black;
-    background-color: yellow;
+    background-color: white;
     height: 80px;
     width: 400px;
     display: flex;
@@ -115,7 +115,7 @@ header{
     border: solid 2px black;
     height: 80px;
     width: 80px;
-    background-color: blue;
+    background-color: purple;
 }
 
 #horizontal-right-winner-bar{
@@ -132,6 +132,7 @@ header{
 }
 
 #countdown{
+    color: red;
     grid-area: cntdwn;
     display: flex;
     font-size: 200px;
@@ -150,7 +151,7 @@ header{
 
 #vertical-back-bar{
     border: solid 2px black;
-    background-color: yellow;
+    background-color: white;
     height: 400px;
     width: 80px;
     display: flex;
@@ -161,7 +162,7 @@ header{
     border: solid 2px black;
     height: 80px;
     width: 80px;
-    background-color: red;
+    background-color: blue;
 }
 #vertical-slider{
     position: absolute;
