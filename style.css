@@ -55,7 +55,6 @@ header{
 #current-weight-group{
     grid-area: csg;
     border: solid 2px black;
-    background-color: white;
     margin: auto;
     width: 50%;
     height: 50%;
@@ -191,5 +190,103 @@ header{
     font-size: 30px;
     justify-content: center;
 }
+#mobile-buttons{
+    display: none;
+}
 
 
+@media (min-width: 600px) and (max-width: 1000px){
+
+
+    #current-weight-label {
+        font-size: x-small;
+    }
+
+    #high-weight-label{
+        font-size: x-small;
+    }
+    #vertical-slider-box {
+        justify-content: center;
+    }
+    #reset-button {
+        font-size: small;
+        width: 90%;
+    }
+    #current-weight-group{
+        width: 90%;
+    }
+    #high-weight-group{
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px){
+    body {
+        background-color:pink;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 10fr 20fr;
+        grid-template-areas: 
+        "hdr hdr hdr"
+        "hsg csg rbutton"
+        "mob-butts mob-butts mob-butts"
+        "gamearea gamearea cntdwn"
+        "gamearea gamearea vert-sbox"
+        ;
+        height: 95vh;
+        width: auto;
+    }
+    #game-area{
+        display: grid;
+        grid-template-rows: 1fr 3fr 1fr;
+        grid-template-columns: 6fr 1fr;
+        grid-area: gamearea;
+        grid-template-areas: 
+        "hor-sbox hor-sbox"
+        "img-box img-box"
+        "mes-box mex-box";
+    }
+    header{
+        font-size: 50px;
+    }
+    #high-weight-group{
+        margin: 0;
+        width: auto;
+        height: auto;
+    }
+    #current-weight-group{
+        margin: 0;
+        height: auto;
+        width:auto;
+    }
+    #reset-button {
+        margin: 0;
+        height: auto;
+        width: auto;
+    }
+    #image-box{
+        grid-area: img-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #message-box{
+        font-size: 25px;
+    }
+    #countdown{
+        font-size: 100px;
+        justify-content: right;
+    }
+    #vertical-slider-box {
+        justify-content: center;
+    }
+    img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    #mobile-buttons{
+        grid-area: mob-butts;
+        display: inline;
+    }
+
+}
