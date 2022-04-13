@@ -12,9 +12,13 @@ const winnerBarHorRightEl = document.getElementById("horizontal-right-winner-bar
 const sliderHorEl = document.getElementById("horizontal-slider");
 const headerEl = document.getElementById("header");
 const stickManEl = document.getElementById("image");
-const horSlideBoxEl = document.getElementById('horizontal-slider-box')
-const vertSlideBoxEl = document.getElementById('vertical-slider-box')
-const countdownEl = document.getElementById('countdown')
+const horSlideBoxEl = document.getElementById('horizontal-slider-box');
+const vertSlideBoxEl = document.getElementById('vertical-slider-box');
+const countdownEl = document.getElementById('countdown');
+const mobileLeftButtonEl = document.getElementById('left-button');
+const mobileRightButtonEl = document.getElementById('right-button');
+const mobileUpButtonEl = document.getElementById('up-button');
+const mobileDownButtonEl = document.getElementById('down-button');
 const vertWinBarStartHeight = 80;
 const horWinBarStartWidth = 80;
 const winBarIncrement = 5;
@@ -81,13 +85,13 @@ let started = 1; //variable to begin the game. -1 is not started and 1 is starte
 
 /*----- event listeners -----*/
 resetButtonEl.addEventListener("click", function () {
-  stickManEl.setAttribute("src", imgArray[0].src);
+  stickManEl.setAttribute("src", imgArray[0].src)
   if (started === -1) {
-    resetButtonEl.innerHTML = "RESET";
-    started = started * -1;
-    console.log("inGame");
-    gameInit();
-  } else reset();
+    resetButtonEl.innerHTML = "RESET"
+    started = started * -1
+    console.log("inGame")
+    gameInit()
+  } else reset()
 });
 //----------Animation Functions--------//
 function moverUpDown() {
@@ -168,8 +172,9 @@ function countDown() {
     }
 
 }
-/*----- EventListener Functions -----*/
+/*----- EventListener Functions for Browser-----*/
 let upArrow = (event) => {
+  console.log("hi")
   if (event.code === "ArrowUp" && currentStage !== 5) {
     clearInterval(moveIntervalCaller);
     vertSliderPos = sliderVertEl.getBoundingClientRect();
@@ -262,6 +267,98 @@ let rightArrow = (event) => {
     }
   }
 };
+
+/*----- EventListener Functions for Mobile-----*/
+
+let upButton = (event) => {
+  console.log(event.code)
+  if (currentStage !== 5) {
+    clearInterval(moveIntervalCaller);
+    vertSliderPos = sliderVertEl.getBoundingClientRect();
+    vertWinnerBarPos = winnerBarVertEl.getBoundingClientRect();
+    if (
+      vertWinnerBarPos.bottom > vertSliderPos.bottom &&
+      vertSliderPos.top > vertWinnerBarPos.top
+    ) {
+      currentStage += 1;
+      mobileUpButtonEl.removeEventListener('click', upButton)
+      gameInit();
+    } else {
+      mobileUpButtonEl.removeEventListener('click', upButton)
+      failure = true;
+      gameInit();
+    }
+  } else if (currentStage === 5) {
+    stickManEl.setAttribute("src", imgArray[5].src);
+    moveIntervalCaller = setInterval(moverUpOnly, (moverStartSpeed-(moverIncrement*currentLevel)));
+    mobileUpButtonEl.removeEventListener('click', upButton)
+    mobileDownButtonEl.addEventListener("click", downButton);
+  }
+};
+
+let downButton = (event) => {
+ 
+  if (currentStage !== 5) {
+    clearInterval(moveIntervalCaller);
+    currentStage += 1;
+    mobileDownButtonEl.removeEventListener("click", downButton);
+    gameInit();
+  } else if (currentStage === 5) {
+    vertSliderPos = sliderVertEl.getBoundingClientRect();
+    vertWinnerBarPos = winnerBarVertEl.getBoundingClientRect();
+    if (
+      vertWinnerBarPos.bottom > vertSliderPos.bottom &&
+      vertSliderPos.top > vertWinnerBarPos.top
+    ) {
+      clearInterval(moveIntervalCaller);
+      mobileDownButtonEl.removeEventListener("click", downButton);
+      currentStage += 1;
+      gameInit();
+    } else {
+      clearInterval(moveIntervalCaller);
+      mobileDownButtonEl.removeEventListener("click", downButton);
+      failure = true;
+      gameInit();
+    }
+  }
+};
+
+let leftButton = (event) => {
+    clearInterval(moveIntervalCaller);
+    horSliderPos = sliderHorEl.getBoundingClientRect();
+    horLeftWinnerBarPos = winnerBarHorLeftEl.getBoundingClientRect();
+    if (
+      horLeftWinnerBarPos.left < horSliderPos.left &&
+      horSliderPos.right < horLeftWinnerBarPos.right
+    ) {
+      currentStage += 1;
+      mobileLeftButtonEl.removeEventListener("click", leftButton);
+      gameInit();
+    } else {
+      mobileLeftButtonEl.removeEventListener("click", leftButton);
+      failure = true;
+      gameInit();
+    }
+};
+
+let rightButton = (event) => {
+    clearInterval(moveIntervalCaller);
+    horSliderPos = sliderHorEl.getBoundingClientRect();
+    horRightWinnerBarPos = winnerBarHorRightEl.getBoundingClientRect();
+    if (
+      horRightWinnerBarPos.left < horSliderPos.left &&
+      horSliderPos.right < horRightWinnerBarPos.right
+    ) {
+      currentStage += 1;
+      mobileRightButtonEl.removeEventListener("click", rightButton);
+      gameInit();
+    } else {
+      mobileRightButtonEl.removeEventListener("click", rightButton);
+      failure = true;
+      gameInit();
+    }
+};
+
 //----Init function-----
 
 function gameInit() {
@@ -360,6 +457,7 @@ function stageOne() {
     "Press the UP arrow to stop the slider";
   moveIntervalCaller = setInterval(moverUpDown, (moverStartSpeed -(moverIncrement*currentLevel)));
   document.addEventListener("keyup", upArrow);
+  mobileUpButtonEl.addEventListener('click', upButton)
 }
 function stageTwo() {
   stickManEl.setAttribute("src", imgArray[1].src);
@@ -367,6 +465,7 @@ function stageTwo() {
     "Press the UP arrow to stop the slider";
   moveIntervalCaller = setInterval(moverUpDown, (moverStartSpeed-(moverIncrement*currentLevel)));
   document.addEventListener("keyup", upArrow);
+  mobileUpButtonEl.addEventListener('click', upButton)
 }
 function stageThree() {
   stickManEl.setAttribute("src", imgArray[2].src);
@@ -374,6 +473,7 @@ function stageThree() {
     "Press the UP arrow to stop the slider";
   moveIntervalCaller = setInterval(moverUpDown, (moverStartSpeed-(moverIncrement*currentLevel)));
   document.addEventListener("keyup", upArrow);
+  mobileUpButtonEl.addEventListener('click', upButton)
 }
 function stageFour() {
   stickManEl.setAttribute("src", imgArray[3].src);
@@ -381,12 +481,14 @@ function stageFour() {
     "Press the Down Arrow to lock it out";
   moveIntervalCaller = setInterval(countDown, (countDownStartTime - (countdownIncrement*currentLevel)));
   document.addEventListener("keyup", downArrow);
+  mobileDownButtonEl.addEventListener('click', downButton)
 }
 function stageFive() {
   stickManEl.setAttribute("src", imgArray[4].src);
   playerMessageEl.innerHTML =
     "Press the Up Arrow to toss the weight, and the Down Arrow to catch it";
   document.addEventListener("keyup", upArrow);
+  mobileUpButtonEl.addEventListener('click', upButton)
 }
 function stageSix() {
   stickManEl.setAttribute("src", imgArray[6].src);
@@ -395,6 +497,7 @@ function stageSix() {
   moveForward = false;
   moveIntervalCaller = setInterval(moverLeftRight, (moverStartSpeed-(moverIncrement*currentLevel)));
   document.addEventListener("keyup", leftArrow);
+  mobileLeftButtonEl.addEventListener('click', leftButton);
 }
 function stageSeven() {
   stickManEl.setAttribute("src", imgArray[7].src);
@@ -403,6 +506,7 @@ function stageSeven() {
   moveForward = true;
   moveIntervalCaller = setInterval(moverLeftRight, (moverStartSpeed-(moverIncrement*currentLevel)));
   document.addEventListener("keyup", rightArrow);
+  mobileRightButtonEl.addEventListener('click', rightButton);
 }
 function stageEight() {
   stickManEl.setAttribute("src", imgArray[8].src);
@@ -411,6 +515,7 @@ function stageEight() {
   moveForward = false;
   moveIntervalCaller = setInterval(moverLeftRight, (moverStartSpeed-(moverIncrement*currentLevel)));
   document.addEventListener("keyup", leftArrow);
+  mobileLeftButtonEl.addEventListener('click', leftButton);
 }
 function stageNine() {
   stickManEl.setAttribute("src", imgArray[9].src);
@@ -419,14 +524,16 @@ function stageNine() {
   moveForward = true;
   moveIntervalCaller = setInterval(moverLeftRight, (moverStartSpeed-(moverIncrement*currentLevel)));
   document.addEventListener("keyup", rightArrow);
+  mobileRightButtonEl.addEventListener('click', rightButton);
 }
 function stageTen() {
   stickManEl.setAttribute("src", imgArray[10].src);
   playerMessageEl.innerHTML =
     "Press the Down Arrow to lock it out";
-  document.addEventListener("keyup", downArrow);
+  //document.addEventListener("keyup", downArrow);
   moveIntervalCaller = setInterval(countDown, (countDownStartTime - (countdownIncrement*currentLevel)));
   document.addEventListener("keyup", downArrow);
+  mobileDownButtonEl.addEventListener('click', downButton);
 }
 function stageEleven() {
   stickManEl.setAttribute("src", imgArray[11].src);
