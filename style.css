@@ -7,7 +7,7 @@
     background-color:lightgray;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 1fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr 100px 2fr 2fr 2fr;
     grid-template-areas: 
     "hdr hdr hdr"
     "mes-box mes-box mes-box"
@@ -108,7 +108,7 @@ header{
 #game-area{
     display: grid;
     grid-template-rows: 50px 1fr;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-area: gamearea;
     grid-template-areas: 
     "hor-sbox cntdwn"
@@ -199,11 +199,8 @@ header{
 }
 #message-box{
     grid-area: mes-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 30px;
-    justify-content: center;
+    height: 100px
 }
 #mobile-buttons{
     display: none;
@@ -240,26 +237,21 @@ header{
         background-color:pink;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 10fr 50px 80px;
+        grid-template-rows: 60px 80px 1fr 1fr 200px 80px;
         grid-template-areas: 
         "hdr hdr hdr"
+        "mes-box mes-box mes-box"
         "gamearea gamearea cntdwn"
         "gamearea gamearea vert-sbox"
         "mob-butts mob-butts mob-butts"
         "scrs-btn scrs-btn scrs-btn"
         ;
-        height: 95vh;
+        height: 98vh;
         width: auto;
     }
     #game-area{
         display: grid;
-        grid-template-rows: 1fr 1fr 3fr;
-        grid-template-columns: 1fr 1fr;
-        grid-area: gamearea;
-        grid-template-areas: 
-        "mes-box mes-box"
-        "hor-sbox hor-sbox"
-        "img-box img-box";
+        grid-template-rows: 1fr 3fr;
     }
     header{
         font-size: 50px;
@@ -300,6 +292,7 @@ header{
     }
     #message-box{
         font-size: 25px;
+        text-align: center;
     }
     #countdown{
         font-size: 100px;
@@ -307,10 +300,12 @@ header{
     }
     #vertical-slider-box {
         justify-content: center;
+        align-items: end;
+        padding-left: 5px;
     }
     #vertical-back-bar{
-    height: 300px;
-    width: 60px;
+        height: 300px;
+        width: 60px;
     }
     #vertical-winner-bar{
         height: 60px;
@@ -318,6 +313,11 @@ header{
         }
     #vertical-slider{
         width: 60px;
+        height: 5px;
+    }
+    #horizontal-slider-box {
+        justify-content: center;
+        align-items: end;
     }
     #horizontal-back-bar{
         height: 60px;
@@ -332,15 +332,57 @@ header{
         width: 60px;
 }
     #horizontal-slider{
-            height: 60px;
+        height: 60px;
     }        
     img{
         max-width: 100%;
         max-height: 100%;
     }
+    #image-box{
+        align-items: end;
+    }
     #mobile-buttons{
         grid-area: mob-butts;
-        display: inline;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        justify-content: end;
+        align-items: center;
+
+    }
+
+    #left-button{
+        background-color: white;
+        max-width: 80px;
+        max-height: 80px;
+        margin: auto;
+        grid-column: 1;
+        grid-row: 1/ span 2;
+
+    }
+    #right-button{
+        background-color: white;
+        margin: auto;
+        max-width: 80px;
+        max-height: 80px;
+        grid-column: 3;
+        grid-row: 1/ span 2;
+    }
+    #up-button{
+        background-color: white;
+        margin: auto;
+        max-width: 80px;
+        max-height: 80px;
+        grid-column: 2;
+        grid-row: 1;
+    }
+    #down-button{
+        background-color: white;
+        margin: auto;
+        max-width: 80px;
+        max-height: 80px;
+        grid-column: 2;
+        grid-row: 2;
     }
 
 }
