@@ -47,7 +47,7 @@ Link to the Game: https://tnicho.github.io/BrowserGame-LiftOff/
 
 Next Steps (Icebox):
 
-1.	Move opening instructions to their proper place in the body section of the HTML document
+1.	Move opening instructions to the body section of the HTML document
 2.	Increase difficulty in Step 2, and Step 3 in comparison to one.
 3.	Increase difficulty in Step 8 and Step 9 in comparison to Steps 6 and 7.
 4.	Make version specifically for tablets.
