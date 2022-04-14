@@ -53,3 +53,4 @@ Next Steps (Icebox):
 3.	Increase difficulty in Step 8 and Step 9 in comparison to Steps 6 and 7.
 4.	Make version specifically for tablets.
 5.	Make playable on smaller phones such as the iPhone SE.
+6.	Give player the ability to change screen sizes mid-game
