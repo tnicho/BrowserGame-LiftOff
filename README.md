@@ -8,8 +8,11 @@ Description: Through a series of reflex based mini games, the
 Screenshots:
 
 
-![Browser-1]https://github.com/tnicho/BrowserGame-LiftOff/blob/main/Browser%202.png
+![Browser-1]https://github.com/tnicho/BrowserGame-LiftOff/blob/main/Browser%201.png
+
 ![Browser-2]https://github.com/tnicho/BrowserGame-LiftOff/blob/main/Browser%202.png
+
+![Mobile-1]
 
 
 
