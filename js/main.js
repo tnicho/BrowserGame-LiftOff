@@ -267,7 +267,7 @@ let rightArrow = (event) => {
 
 /*----- eventListener functions for mobile-----*/
 
-let upButton = (event) => {
+let upButton = () => {
   document.removeEventListener("keyup", upArrow)
   if (currentStage !== 5) {
     clearInterval(moveIntervalCaller)
@@ -293,7 +293,7 @@ let upButton = (event) => {
   }
 }
 
-let downButton = (event) => {
+let downButton = () => {
   document.removeEventListener("keyup", downArrow)
   if (currentStage !== 5) {
     clearInterval(moveIntervalCaller)
@@ -320,7 +320,7 @@ let downButton = (event) => {
   }
 }
 
-let leftButton = (event) => {
+let leftButton = () => {
   document.removeEventListener("keyup", leftArrow)
   clearInterval(moveIntervalCaller)
   horSliderPos = sliderHorEl.getBoundingClientRect()
@@ -339,7 +339,7 @@ let leftButton = (event) => {
   }
 }
 
-let rightButton = (event) => {
+let rightButton = () => {
   document.removeEventListener("keyup", rightArrow)
   clearInterval(moveIntervalCaller)
   horSliderPos = sliderHorEl.getBoundingClientRect()
@@ -595,7 +595,6 @@ function stageEleven() {
 }
 
 function stageFailure() {
-  console.log("stageFailure")
   playerMessageEl.innerHTML = "OOOOF! That...looks like it hurt"
   stickManEl.setAttribute("src", imgArray[12].src)
   setTimeout(function () {
