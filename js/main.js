@@ -171,6 +171,7 @@ function countDown() {
 /*----- eventlistener functions for browser-----*/
 
 let upArrow = (event) => {
+  mobileUpButtonEl.removeEventListener("click", upButton)
   if (event.code === "ArrowUp" && currentStage !== 5) {
     clearInterval(moveIntervalCaller)
     vertSliderPos = sliderVertEl.getBoundingClientRect()
@@ -196,8 +197,8 @@ let upArrow = (event) => {
 }
 
 let downArrow = (event) => {
+  mobileDownButtonEl.removeEventListener("click", downButton)
   if (event.code === "ArrowDown" && currentStage !== 5) {
-    console.log("made it here")
     clearInterval(moveIntervalCaller)
     currentStage += 1
     document.removeEventListener("keyup", downArrow)
@@ -223,6 +224,7 @@ let downArrow = (event) => {
 }
 
 let leftArrow = (event) => {
+  mobileLeftButtonEl.removeEventListener("click", leftButton)
   if (event.code === "ArrowLeft") {
     clearInterval(moveIntervalCaller)
     horSliderPos = sliderHorEl.getBoundingClientRect()
@@ -243,6 +245,7 @@ let leftArrow = (event) => {
 }
 
 let rightArrow = (event) => {
+  mobileRightButtonEl.removeEventListener("click", rightButton)
   if (event.code === "ArrowRight") {
     clearInterval(moveIntervalCaller)
     horSliderPos = sliderHorEl.getBoundingClientRect()
@@ -265,6 +268,7 @@ let rightArrow = (event) => {
 /*----- eventListener functions for mobile-----*/
 
 let upButton = (event) => {
+  document.removeEventListener("keyup", upArrow)
   if (currentStage !== 5) {
     clearInterval(moveIntervalCaller)
     vertSliderPos = sliderVertEl.getBoundingClientRect()
@@ -290,6 +294,7 @@ let upButton = (event) => {
 }
 
 let downButton = (event) => {
+  document.removeEventListener("keyup", downArrow)
   if (currentStage !== 5) {
     clearInterval(moveIntervalCaller)
     currentStage += 1
@@ -316,6 +321,7 @@ let downButton = (event) => {
 }
 
 let leftButton = (event) => {
+  document.removeEventListener("keyup", leftArrow)
   clearInterval(moveIntervalCaller)
   horSliderPos = sliderHorEl.getBoundingClientRect()
   horLeftWinnerBarPos = winnerBarHorLeftEl.getBoundingClientRect()
@@ -334,6 +340,7 @@ let leftButton = (event) => {
 }
 
 let rightButton = (event) => {
+  document.removeEventListener("keyup", rightArrow)
   clearInterval(moveIntervalCaller)
   horSliderPos = sliderHorEl.getBoundingClientRect()
   horRightWinnerBarPos = winnerBarHorRightEl.getBoundingClientRect()
