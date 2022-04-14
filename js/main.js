@@ -539,7 +539,7 @@ function stageSix() {
 
 function stageSeven() {
   stickManEl.setAttribute("src", imgArray[7].src)
-  playerMessageEl.innerHTML = "Press the RIGHT arrow to to stop the slider inside the PURPLE bar"
+  playerMessageEl.innerHTML = "Press the RIGHT arrow to stop the slider inside the PURPLE bar"
   moveForward = true
   moveIntervalCaller = setInterval(
     moverLeftRight,
@@ -551,7 +551,7 @@ function stageSeven() {
 
 function stageEight() {
   stickManEl.setAttribute("src", imgArray[8].src)
-  playerMessageEl.innerHTML = "Press the LEFT arrow to to stop the slider inside the PURPLE bar"
+  playerMessageEl.innerHTML = "Press the LEFT arrow to stop the slider inside the PURPLE bar"
   moveForward = false
   moveIntervalCaller = setInterval(
     moverLeftRight,
@@ -563,7 +563,7 @@ function stageEight() {
 
 function stageNine() {
   stickManEl.setAttribute("src", imgArray[9].src)
-  playerMessageEl.innerHTML = "Press the RIGHT arrow to to stop the slider inside the PURPLE bar"
+  playerMessageEl.innerHTML = "Press the RIGHT arrow to stop the slider inside the PURPLE bar"
   moveForward = true
   moveIntervalCaller = setInterval(
     moverLeftRight,
