@@ -54,4 +54,3 @@ Next Steps (Icebox):
 5.	Make playable on smaller phones such as the iPhone SE.
 6.	Give player the ability to change screen sizes mid-game
 7.	Change use of global variables to passing arguements into functions for testing winners
-8.	Add grunting and congratulation sounds
