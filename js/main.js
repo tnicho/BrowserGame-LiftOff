@@ -1,4 +1,5 @@
-/*----- constants -----*/
+/*----- Cached Elements -----*/
+
 const highWeightEl = document.getElementById("high-weight");
 const currentWeightEl = document.getElementById("current-weight");
 const resetButtonEl = document.getElementById("reset-button");
@@ -7,12 +8,8 @@ const backBarVertEl = document.getElementById("vertical-back-bar");
 const winnerBarVertEl = document.getElementById("vertical-winner-bar");
 const sliderVertEl = document.getElementById("vertical-slider");
 const backBarHorEl = document.getElementById("horizontal-back-bar");
-const winnerBarHorLeftEl = document.getElementById(
-  "horizontal-left-winner-bar"
-);
-const winnerBarHorRightEl = document.getElementById(
-  "horizontal-right-winner-bar"
-);
+const winnerBarHorLeftEl = document.getElementById("horizontal-left-winner-bar");
+const winnerBarHorRightEl = document.getElementById("horizontal-right-winner-bar");
 const sliderHorEl = document.getElementById("horizontal-slider");
 const headerEl = document.getElementById("header");
 const stickManEl = document.getElementById("image");
@@ -23,21 +20,23 @@ const mobileLeftButtonEl = document.getElementById("left-button");
 const mobileRightButtonEl = document.getElementById("right-button");
 const mobileUpButtonEl = document.getElementById("up-button");
 const mobileDownButtonEl = document.getElementById("down-button");
-const vertWinBarStartHeight = 80;
-const horWinBarStartWidth = 80;
-const winBarIncrement = 5;
-const moverStartSpeed = 50;
-const moverIncrement = 5;
-const countDownStartTime = 400;
-const countdownIncrement = 20;
-const counterStart = 5;
 
-//------Array of Images------
+/*----- constants -----*/
+
+const vertWinBarStartHeight = 80; //the starting height of the win bar for the vertical slider (dictates difficulty)
+const horWinBarStartWidth = 80;   //the starting width of the win bar for the horizontal slider (dictates difficulty)
+const winBarIncrement = 5;        //the pixels win bars will decrease at each progressive level
+const moverStartSpeed = 50;       //initial movement of the sliders (in ms)
+const moverIncrement = 5;         //speed at which the movement increase (in ms)
+const countDownStartTime = 400;   //intial value for lock out timer (times five) (in ms)
+const countdownIncrement = 20;    //decrease in time for each number in the lock out timer (in ms)
+const counterStart = 5;           //number to begin count down in the lock out timer
+
+/*------array of images for the stick figures------*/
+
 let imgArray = [];
-
 imgArray[0] = new Image();
 imgArray[0].src = "img/1.png";
-stickManEl.setAttribute("src", imgArray[0].src);
 imgArray[1] = new Image();
 imgArray[1].src = "img/2.png";
 imgArray[2] = new Image();
@@ -62,19 +61,20 @@ imgArray[11] = new Image();
 imgArray[11].src = "img/12.png";
 imgArray[12] = new Image();
 imgArray[12].src = "img/13.png";
+stickManEl.setAttribute("src", imgArray[0].src);    //set to image 0 at start up
 
 /*----- app's state (variables) -----*/
-let started = 1; //variable to begin the game. -1 is not started and 1 is started
-let moveForward = true;
-let moveGo = true;
-let counter;
-let moveIntervalCaller;
-let failure = false;
-let highLevel = 0;
-let highWeight = 0;
-let currentLevel;
-let currentWeight = 50;
-let currentStage;
+
+let started = 1;        //variable to begin the game. -1 is not started and 1 is started
+let moveForward = true; //variable to determine direction of movement of sliders
+let counter;            //variable for lockout counter
+let moveIntervalCaller; //variable used in setInverval function of animations
+let failure = false;    //determines if a user ahs failed a task
+let highLevel = 0;      //stores users highest level reached
+let highWeight = 0;     //stores the weight value of that highest level reached
+let currentLevel;       //stores current level
+let currentWeight = 50; //stores current weight value of that level, default is 50lbs
+let currentStage;       //stores the users current stage within each level
 let vertBackBarPos = backBarVertEl.getBoundingClientRect();
 let vertWinnerBarPos = winnerBarVertEl.getBoundingClientRect();
 let vertSliderPos = sliderVertEl.getBoundingClientRect();
@@ -84,6 +84,7 @@ let horRightWinnerBarPos = winnerBarHorRightEl.getBoundingClientRect();
 let horSliderPos = sliderHorEl.getBoundingClientRect();
 
 /*----- event listeners -----*/
+
 resetButtonEl.addEventListener("click", function () {
   stickManEl.setAttribute("src", imgArray[0].src)
   if (started === -1) {
@@ -92,7 +93,9 @@ resetButtonEl.addEventListener("click", function () {
     gameInit()
   } else reset()
 })
-//----------Animation Functions--------//
+
+//----------animation functions--------//
+
 function moverUpDown() {
   vertSliderPos = sliderVertEl.getBoundingClientRect();
   vertBackBarPos = backBarVertEl.getBoundingClientRect();
@@ -165,7 +168,8 @@ function countDown() {
   }
 }
 
-/*----- EventListener Functions for Browser-----*/
+/*----- eventlistener functions for browser-----*/
+
 let upArrow = (event) => {
   if (event.code === "ArrowUp" && currentStage !== 5) {
     clearInterval(moveIntervalCaller)
@@ -258,7 +262,7 @@ let rightArrow = (event) => {
   }
 }
 
-/*----- EventListener Functions for Mobile-----*/
+/*----- eventListener functions for mobile-----*/
 
 let upButton = (event) => {
   if (currentStage !== 5) {
@@ -347,6 +351,9 @@ let rightButton = (event) => {
   }
 }
 
+
+/*------functions called in stage initialization------*/
+
 function hideStage(){
   countdownEl.style.visibility = "hidden"
   horSlideBoxEl.style.visibility = "hidden"
@@ -367,15 +374,24 @@ function getPos(){
   winnerBarHorRightEl.style.width =
   horWinBarStartWidth - winBarIncrement * currentLevel + "px"
 }
-//----Init function-----
+
+function displayWeight(){
+  currentWeight = 50 + 25 * currentLevel + "lbs"
+  currentWeightEl.innerHTML = currentWeight
+}
+
+function resetCounter(){
+  counter = counterStart
+  countdownEl.innerHTML = counter
+}
+
+/*----initialization function-----*/
 
 function gameInit() {
   hideStage()
   if (started === 1) {
-    currentWeight = 50 + 25 * currentLevel + "lbs"
-    currentWeightEl.innerHTML = currentWeight
-    counter = counterStart
-    countdownEl.innerHTML = counter
+    displayWeight()
+    resetCounter()
     moveIntervalCaller = null
     getPos()
     clearInterval(moveIntervalCaller)
@@ -432,6 +448,8 @@ function gameInit() {
   }
 }
 
+/*------reset function------*/
+
 function reset() {
   started = started * -1
   resetButtonEl.innerHTML = "START"
@@ -446,6 +464,8 @@ function reset() {
   gameInit()
 }
 
+/*------stage functions------*/
+
 function stageOne() {
   stickManEl.setAttribute("src", imgArray[0].src)
   playerMessageEl.innerHTML = "Press the UP arrow to stop the slider"
@@ -456,6 +476,7 @@ function stageOne() {
   document.addEventListener("keyup", upArrow)
   mobileUpButtonEl.addEventListener("click", upButton)
 }
+
 function stageTwo() {
   stickManEl.setAttribute("src", imgArray[1].src)
   playerMessageEl.innerHTML = "Press the UP arrow to stop the slider"
@@ -466,6 +487,7 @@ function stageTwo() {
   document.addEventListener("keyup", upArrow)
   mobileUpButtonEl.addEventListener("click", upButton)
 }
+
 function stageThree() {
   stickManEl.setAttribute("src", imgArray[2].src)
   playerMessageEl.innerHTML = "Press the UP arrow to stop the slider"
@@ -476,6 +498,7 @@ function stageThree() {
   document.addEventListener("keyup", upArrow)
   mobileUpButtonEl.addEventListener("click", upButton)
 }
+
 function stageFour() {
   stickManEl.setAttribute("src", imgArray[3].src)
   playerMessageEl.innerHTML = "Press the Down Arrow to lock it out"
@@ -486,6 +509,7 @@ function stageFour() {
   document.addEventListener("keyup", downArrow)
   mobileDownButtonEl.addEventListener("click", downButton)
 }
+
 function stageFive() {
   stickManEl.setAttribute("src", imgArray[4].src)
   playerMessageEl.innerHTML =
@@ -493,6 +517,7 @@ function stageFive() {
   document.addEventListener("keyup", upArrow)
   mobileUpButtonEl.addEventListener("click", upButton)
 }
+
 function stageSix() {
   stickManEl.setAttribute("src", imgArray[6].src)
   playerMessageEl.innerHTML = "Press the Left Arrow to lift it over your head"
@@ -504,6 +529,7 @@ function stageSix() {
   document.addEventListener("keyup", leftArrow)
   mobileLeftButtonEl.addEventListener("click", leftButton)
 }
+
 function stageSeven() {
   stickManEl.setAttribute("src", imgArray[7].src)
   playerMessageEl.innerHTML = "Press the Right Arrow to lift it over your head"
@@ -515,6 +541,7 @@ function stageSeven() {
   document.addEventListener("keyup", rightArrow)
   mobileRightButtonEl.addEventListener("click", rightButton)
 }
+
 function stageEight() {
   stickManEl.setAttribute("src", imgArray[8].src)
   playerMessageEl.innerHTML = "Press the Left Arrow to lift it over your head"
@@ -526,6 +553,7 @@ function stageEight() {
   document.addEventListener("keyup", leftArrow)
   mobileLeftButtonEl.addEventListener("click", leftButton)
 }
+
 function stageNine() {
   stickManEl.setAttribute("src", imgArray[9].src)
   playerMessageEl.innerHTML = "Press the Right Arrow to lift it over your head"
@@ -537,6 +565,7 @@ function stageNine() {
   document.addEventListener("keyup", rightArrow)
   mobileRightButtonEl.addEventListener("click", rightButton)
 }
+
 function stageTen() {
   stickManEl.setAttribute("src", imgArray[10].src)
   playerMessageEl.innerHTML = "Press the Down Arrow to lock it out"
@@ -547,6 +576,7 @@ function stageTen() {
   document.addEventListener("keyup", downArrow)
   mobileDownButtonEl.addEventListener("click", downButton)
 }
+
 function stageEleven() {
   stickManEl.setAttribute("src", imgArray[11].src)
   playerMessageEl.innerHTML = "Congratulations! Let's add 25lbs and try again"
@@ -570,4 +600,7 @@ function stageFailure() {
     reset()
   }, 4000)
 }
-reset()
+
+/*-----beginning function call------*/
+
+reset() //Begins the program
