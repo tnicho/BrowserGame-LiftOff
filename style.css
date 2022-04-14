@@ -2,6 +2,43 @@
     box-sizing: border-box;
   /*   height and width now includes border and padding */
   }
+
+#instructions-box{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+#instructions{
+    display: flex;
+    flex-direction: column;
+    background-color: lavender;
+    font-size: X-Large;
+}
+#instructions-title{
+    text-align: center;
+    font-size: 6vh;
+}
+.instruct-header{
+    text-align: center;
+    font-size:  4vh;
+}
+#insruct-but-box{
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    width: auto;
+}
+#instruct-button{
+    width: 20%;
+    margin-bottom: 10px;
+    height: auto;
+    font-size: 4vh;
+    font-weight: bolder;
+}  
   
 body {
     background-color:lightgray;
@@ -17,6 +54,7 @@ body {
     height: 95vh;
     width: auto;
 }
+
 header{
     display: flex;
     grid-area: hdr;
@@ -341,6 +379,42 @@ header{
         max-height: 80px;
         grid-column: 2;
         grid-row: 2;
+    }
+    #instructions-box{
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+    }
+    #instructions{
+        display: flex;
+        flex-direction: column;
+        background-color: lavender;
+        font-size: large;
+    }
+    #instructions-title{
+        text-align: center;
+        font-size: 4vh;
+    }
+    .instruct-header{
+        text-align: center;
+        font-size:  3vh;
+    }
+    #insruct-but-box{
+        display: flex;
+        justify-content: center;
+        height: 60px;
+        width: auto;
+    }
+    #instruct-button{
+        width: 20%;
+        margin-bottom: 10px;
+        height: auto;
+        font-size: 2vh;
+        font-weight: bolder;
     }
 
 }

@@ -610,4 +610,16 @@ function stageFailure() {
 
 /*-----beginning function call------*/
 
-reset() //Begins the program
+
+reset()
+
+/*------Instructions Sheet------*/
+const instructButtonEl = document.getElementById('instruct-button')
+const instructionsBoxEl = document.getElementById('instructions-box')
+
+let readyToPlay= () => {
+  instructionsBoxEl.style.display = 'none'
+}
+
+instructButtonEl.addEventListener('click', readyToPlay)
+
