@@ -621,4 +621,3 @@ let readyToPlay= () => {
 }
 
 instructButtonEl.addEventListener('click', readyToPlay)
-
