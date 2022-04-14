@@ -187,30 +187,9 @@ header{
 #mobile-buttons{
     display: none;
 }
-@media (min-width: 600px) and (max-width: 1000px){
-    #current-weight-label {
-        font-size: x-small;
-    }
-    #high-weight-label{
-        font-size: x-small;
-    }
-    #vertical-slider-box {
-        justify-content: center;
-    }
-    #reset-button {
-        font-size: small;
-        width: 90%;
-    }
-    #current-weight-group{
-        width: 90%;
-    }
-    #high-weight-group{
-        width: 90%;
-    }
-}
-@media (max-width: 600px){
+
+@media (max-width: 1000px){
     body {
-        background-color:pink;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 60px 80px 1fr 1fr 200px 80px;
