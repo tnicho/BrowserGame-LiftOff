@@ -12,9 +12,8 @@ Screenshots:
 
 ![Browser-2]https://github.com/tnicho/BrowserGame-LiftOff/blob/main/Browser%202.png
 
-![Mobile-1]https://github.com/tnicho/BrowserGame-LiftOff/blob/main/Mobile%201.png
+![Mobile]https://github.com/tnicho/BrowserGame-LiftOff/blob/main/Mobile.png
 
-![Mobile-2]https://github.com/tnicho/BrowserGame-LiftOff/blob/main/Mobile%202.png
 
 Technologies Used: HTML, CSS, JavaScript, GitHub (hosting), and Canva (image creation)
 
