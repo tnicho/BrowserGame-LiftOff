@@ -230,7 +230,7 @@ header{
     body {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 60px 80px 1fr 1fr 200px 80px;
+        grid-template-rows: 60px 80px 1fr 1fr 23% 70px;
         grid-template-areas: 
         "hdr hdr"
         "mes-box mes-box"
@@ -382,8 +382,8 @@ header{
     }
     #instructions-box{
         position: absolute;
-        height: 100vh;
-        width: 100vw;
+        height: 90vh;
+        width: 95vw;
         display: flex;
         justify-content: center;
         align-items: center;
