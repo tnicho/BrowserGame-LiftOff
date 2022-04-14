@@ -1,16 +1,16 @@
 LIFT OFF
 
-Goal: The goal of LIFT OFF is to help your "Weightlifter" complete a "Clean and Press" in which one lifts a bar to the waist,
-	the chest and finally over the head.
+Description:  The goal of LIFT OFF is to help your "Weightlifter" complete a "Clean and Press" in which one lifts a bar to the waist,
+	the chest, and finally over the head. This goal is accomplished through a series of reflex-based mini games using the arrow keys (or buttons on mobile).
 
-Description: Through a series of reflex based mini games, the 
+Background:	The game LIFT OFF dates back to 2022 when a young Tim Nicholson was lying on his bed watching the weightlifting videos his friend Doug had posted on 		     Instagram. Tim liked the idea of lifting weights but the gym seemed far away and the weights looked very difficult to lift, so Tim decided to code a 		  little man to do it instead. This proved to be its own kind of difficult, but the kind of difficult one could do while sitting in a chair, which was 		nice.
 
 Screenshots:
 
 
 ![Browser-1]https://github.com/tnicho/BrowserGame-LiftOff/blob/main/Browser%201.png
 
-![Browser-2]https://github.com/tnicho/BrowserGame-LiftOff/blob/main/Browser%202.png
+![Browser-2]https://github.com/tnicho/BrowserGame-LiftOff/blob/main/Browser_2.png
 
 ![Mobile]https://github.com/tnicho/BrowserGame-LiftOff/blob/main/Mobile.png
 
