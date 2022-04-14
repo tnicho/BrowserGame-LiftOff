@@ -23,7 +23,7 @@ Gameplay:
 	In this game the "Clean and Press" is done by completed a series of 10 reflex based mini games using the arrow keys or
 	buttons provided on mobile.
 
-Stages 1-3: Press the UP arrow to stop the vertical slider inside of the BLUE bar.
+Stages 1-3: 	Press the UP arrow to stop the vertical slider inside of the BLUE bar.
 
 Stage 4:	Press the DOWN arrow before the internal timer runs out to "Lock Out" the bar at your waist.
 
@@ -44,7 +44,7 @@ Stage 10:	Press the DOWN arrow before the internal timer runs out to "Lock Out" 
 After the Final Stage is complete, the "weight" (level) increases which decreases the size of the BLUE and PURPLE bars, and
 increases the speed of the slider animation.
 
-Link to the Game:
+Link to the Game: https://tnicho.github.io/BrowserGame-LiftOff/
 
 Next Steps (Icebox):
 
