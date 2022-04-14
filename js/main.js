@@ -464,7 +464,7 @@ function reset() {
   currentStage = 1
   currentWeight = 50
   failure = false
-  playerMessageEl.innerHTML = "Welcome! Press the START button to begin"
+  playerMessageEl.innerHTML = "Press the START button to begin"
   currentWeightEl.innerHTML = currentWeight + 'lbs'
   stickManEl.setAttribute("src", imgArray[0].src)
   clearInterval(moveIntervalCaller)
@@ -475,7 +475,7 @@ function reset() {
 
 function stageOne() {
   stickManEl.setAttribute("src", imgArray[0].src)
-  playerMessageEl.innerHTML = "Press the UP arrow to stop the slider"
+  playerMessageEl.innerHTML = "Press the UP arrow to stop the slider in the BLUE bar"
   moveIntervalCaller = setInterval(
     moverUpDown,
     moverStartSpeed - moverIncrement * currentLevel
@@ -486,7 +486,7 @@ function stageOne() {
 
 function stageTwo() {
   stickManEl.setAttribute("src", imgArray[1].src)
-  playerMessageEl.innerHTML = "Press the UP arrow to stop the slider"
+  playerMessageEl.innerHTML = "Press the UP arrow to stop the slider in the BLUE bar"
   moveIntervalCaller = setInterval(
     moverUpDown,
     moverStartSpeed - moverIncrement * currentLevel
@@ -497,7 +497,7 @@ function stageTwo() {
 
 function stageThree() {
   stickManEl.setAttribute("src", imgArray[2].src)
-  playerMessageEl.innerHTML = "Press the UP arrow to stop the slider"
+  playerMessageEl.innerHTML = "Press the UP arrow to stop the slider in the BLUE bar"
   moveIntervalCaller = setInterval(
     moverUpDown,
     moverStartSpeed - moverIncrement * currentLevel
@@ -508,7 +508,7 @@ function stageThree() {
 
 function stageFour() {
   stickManEl.setAttribute("src", imgArray[3].src)
-  playerMessageEl.innerHTML = "Press the Down Arrow to lock it out"
+  playerMessageEl.innerHTML = "QUICK! Press the DOWN arrow to lock out the weight!"
   moveIntervalCaller = setInterval(
     countDown,
     countDownStartTime - countdownIncrement * currentLevel
@@ -520,14 +520,14 @@ function stageFour() {
 function stageFive() {
   stickManEl.setAttribute("src", imgArray[4].src)
   playerMessageEl.innerHTML =
-    "Press the Up Arrow to toss the weight, and the Down Arrow to catch it"
+    "Press the UP arrow to toss the wight (start the slider), and the DOWN arrow inside the BLUE bar to catch it"
   document.addEventListener("keyup", upArrow)
   mobileUpButtonEl.addEventListener("click", upButton)
 }
 
 function stageSix() {
   stickManEl.setAttribute("src", imgArray[6].src)
-  playerMessageEl.innerHTML = "Press the Left Arrow to lift it over your head"
+  playerMessageEl.innerHTML = "Press the LEFT arrow to stop the slider inside the PURPLE bar"
   moveForward = false
   moveIntervalCaller = setInterval(
     moverLeftRight,
@@ -539,7 +539,7 @@ function stageSix() {
 
 function stageSeven() {
   stickManEl.setAttribute("src", imgArray[7].src)
-  playerMessageEl.innerHTML = "Press the Right Arrow to lift it over your head"
+  playerMessageEl.innerHTML = "Press the RIGHT arrow to to stop the slider inside the PURPLE bar"
   moveForward = true
   moveIntervalCaller = setInterval(
     moverLeftRight,
@@ -551,7 +551,7 @@ function stageSeven() {
 
 function stageEight() {
   stickManEl.setAttribute("src", imgArray[8].src)
-  playerMessageEl.innerHTML = "Press the Left Arrow to lift it over your head"
+  playerMessageEl.innerHTML = "Press the LEFT arrow to to stop the slider inside the PURPLE bar"
   moveForward = false
   moveIntervalCaller = setInterval(
     moverLeftRight,
@@ -563,7 +563,7 @@ function stageEight() {
 
 function stageNine() {
   stickManEl.setAttribute("src", imgArray[9].src)
-  playerMessageEl.innerHTML = "Press the Right Arrow to lift it over your head"
+  playerMessageEl.innerHTML = "Press the RIGHT arrow to to stop the slider inside the PURPLE bar"
   moveForward = true
   moveIntervalCaller = setInterval(
     moverLeftRight,
@@ -575,7 +575,7 @@ function stageNine() {
 
 function stageTen() {
   stickManEl.setAttribute("src", imgArray[10].src)
-  playerMessageEl.innerHTML = "Press the Down Arrow to lock it out"
+  playerMessageEl.innerHTML = "QUICK! Press the DOWN arrow to lock out the weight!"
   moveIntervalCaller = setInterval(
     countDown,
     countDownStartTime - countdownIncrement * currentLevel
@@ -586,7 +586,7 @@ function stageTen() {
 
 function stageEleven() {
   stickManEl.setAttribute("src", imgArray[11].src)
-  playerMessageEl.innerHTML = "Congratulations! Let's add 25lbs and try again"
+  playerMessageEl.innerHTML = "CONGRATULATIONS! Can you do 25lbs more?"
   setTimeout(function () {
     currentStage = 1
     currentLevel++
@@ -596,7 +596,7 @@ function stageEleven() {
 
 function stageFailure() {
   console.log("stageFailure")
-  playerMessageEl.innerHTML = "OOOOF! That looks like it hurt"
+  playerMessageEl.innerHTML = "OOOOF! That...looks like it hurt"
   stickManEl.setAttribute("src", imgArray[12].src)
   setTimeout(function () {
     if (currentLevel > highLevel) {

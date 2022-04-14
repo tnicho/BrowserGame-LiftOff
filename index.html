@@ -7,70 +7,94 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
     <title>LIFT OFF</title>
   </head>
-  <div id = instructions-box>
-      <div id = instructions>
-        <p id="instructions-title">Welcome to LIFT OFF!</p>
-        <p>-The goal of LIFT OFF is to help your Weightlifter complete a "Clean and Press"<br></p>
-        <p class="instruct-header">Here's what you need to know.</p>
-        <p>-A Clean and Press is done by lifting the bar to your waist, then to your shoulders and finally over your head.</p>
-        <p>-To complete this, you will need to pass 10 quick time events based around the Arrow Keys on browser or the Arrow Buttons on mobile</p>
-        <p>-Lifting the weight is performed by landing the slider inside of the coloured portion of the bar using the UP, LEFT, or RIGHT arrow keys (or buttons) as instructed</p>
-        <p>-"Locking out" the weight is done with the DOWN arrow key to settle the weight at your waist, shoulders, and over your head</p>
-        <p class="instruct-header">Ready to Start?</p>
-        <div id="insruct-but-box">
-          <button id="instruct-button">READY</button>
-        </div>
+  <div id="instructions-box">
+    <div id="instructions">
+      <p id="instructions-title">Welcome to LIFT OFF!</p>
+      <p>
+        -The goal of LIFT OFF is to help your Weightlifter complete a "Clean
+        and Press"<br />
+      </p>
+      <p class="instruct-header">Here's what you need to know.</p>
+      <p>
+        -A Clean and Press is done by lifting the bar to your waist, then to
+        your shoulders and finally over your head.
+      </p>
+      <p>
+        -To complete this, you will need to pass 10 quick time events based
+        around the Arrow Keys on browser or the Arrow Buttons on mobile
+      </p>
+      <p>
+        -Lifting the weight is performed by landing the slider inside of the
+        coloured portion of the bar using the UP, LEFT, or RIGHT arrow keys
+        (or buttons) as instructed
+      </p>
+      <p>
+        -"Locking out" the weight is done with the DOWN arrow key to settle
+        the weight at your waist, shoulders, and over your head
+      </p>
+      <p class="instruct-header">Ready to Start?</p>
+      <div id="insruct-but-box">
+        <button id="instruct-button">READY</button>
       </div>
+    </div>
   </div>
   <body>
-    <header>LIFT OFF</header>
-    <div id="scores-and-button">
-      <div id="high-weight-group">
-        <div id="high-weight-label">
-          <p>PERSONAL BEST</p>
+      <header>LIFT OFF</header>
+      <div id="scores-and-button">
+        <div id="high-weight-group">
+          <div id="high-weight-label">
+            <p>PERSONAL BEST</p>
+          </div>
+          <div id="high-weight">
+            <p>0</p>
+          </div>
         </div>
-        <div id="high-weight">
-          <p>0</p>
+        <div id="current-weight-group">
+          <div id="current-weight-label">
+            <p>CURRENT WEIGHT</p>
+          </div>
+          <div id="current-weight">
+            <p>0</p>
+          </div>
+        </div>
+        <button id="reset-button">START</button>
+      </div>
+      <div id="message-box">
+        <p id="player-message">MESSAGE TO PLAYER</p>
+      </div>
+      <div id="game-area">
+        <div id="horizontal-slider-box">
+          <div id="horizontal-back-bar">
+            <div id="horizontal-left-winner-bar"></div>
+            <div id="horizontal-right-winner-bar"></div>
+            <div id="horizontal-slider"></div>
+          </div>
+        </div>
+        <div id="image-box">
+          <img id="image" src="" />
+        </div>
+        <div id="countdown"></div>
+        <div id="vertical-slider-box">
+          <div id="vertical-back-bar">
+            <div id="vertical-winner-bar"></div>
+            <div id="vertical-slider"></div>
+          </div>
         </div>
       </div>
-      <div id="current-weight-group">
-        <div id="current-weight-label">
-          <p>CURRENT WEIGHT</p>
-        </div>
-        <div id="current-weight">
-          <p>0</p>
-        </div>
+      <div id="mobile-buttons">
+        <button id="left-button">
+          <img src="img/gamearrows/Left_Arrow.png" />
+        </button>
+        <button id="right-button">
+          <img src="img/gamearrows/Right_Arrow.png" />
+        </button>
+        <button id="up-button">
+          <img src="img/gamearrows/Up_Arrow.png" />
+        </button>
+        <button id="down-button">
+          <img src="img/gamearrows/Down_Arrow.png" />
+        </button>
       </div>
-      <button id="reset-button">START</button>
-    </div>
-    <div id="message-box">
-      <p id="player-message">MESSAGE TO PLAYER</p>
-    </div>
-    <div id="game-area">
-      <div id="horizontal-slider-box">
-        <div id="horizontal-back-bar">
-          <div id="horizontal-left-winner-bar"></div>
-          <div id="horizontal-right-winner-bar"></div>
-          <div id="horizontal-slider"></div>
-        </div>
-      </div>
-      <div id="image-box">
-        <img id="image" src="" />
-      </div>
-      <div id="countdown"></div>
-      <div id="vertical-slider-box">
-        <div id="vertical-back-bar">
-          <div id="vertical-winner-bar"></div>
-          <div id="vertical-slider"></div>
-        </div>
-      </div>
-    </div>
-    <div id="mobile-buttons">
-      <button id="left-button"><img src="img/gamearrows/Left_Arrow.png" /></button>
-      <button id="right-button"><img src="img/gamearrows/Right_Arrow.png" /></button>
-      <button id="up-button"><img src="img/gamearrows/Up_Arrow.png" /></button>
-      <button id="down-button"><img src="img/gamearrows/Down_Arrow.png" /></button>
-    </div>
     <script src="js/main.js"></script>
   </body>
 </html>
