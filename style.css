@@ -1,420 +1,485 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
   /*   height and width now includes border and padding */
-  }
+}
 
-#instructions-box{
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
+#instructions-box {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
 }
-#instructions{
-    display: flex;
-    flex-direction: column;
-    background-color: lavender;
-    font-size: X-Large;
+#instructions {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(242, 170, 170);
+  font-size: X-Large;
 }
-#instructions-title{
-    text-align: center;
-    font-size: 6vh;
+#instructions-title {
+  text-align: center;
+  font-size: 6vh;
 }
-.instruct-header{
-    text-align: center;
-    font-size:  4vh;
+.instruct-header {
+  text-align: center;
+  font-size: 4vh;
 }
-#insruct-but-box{
-    display: flex;
-    justify-content: center;
-    height: 60px;
-    width: auto;
+#insruct-but-box {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  width: auto;
 }
-#instruct-button{
-    width: 20%;
-    margin-bottom: 10px;
-    height: auto;
-    font-size: 4vh;
-    font-weight: bolder;
-}  
-  
+#instruct-button {
+  width: 20%;
+  margin-bottom: 10px;
+  height: auto;
+  font-size: 4vh;
+  font-weight: bolder;
+}
+
 body {
-    background-color:lightgray;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 100px 2fr 2fr 2fr;
-    grid-template-areas: 
+  background-color: lightgray;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 100px 2fr 2fr 2fr;
+  grid-template-areas:
     "hdr hdr hdr"
     "mes-box mes-box mes-box"
     "scrs-btn gamearea gamearea"
     "scrs-btn gamearea gamearea"
     "scrs-btn gamearea gamearea";
-    height: 95vh;
-    width: auto;
+  height: 95vh;
+  width: auto;
 }
 
-header{
-    display: flex;
-    grid-area: hdr;
-    justify-content: center;
-    align-items: center;
-    font-size: 100px;
+header {
+  display: flex;
+  grid-area: hdr;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
 }
-#scores-and-button{
-    grid-area: scrs-btn;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
+#scores-and-button {
+  grid-area: scrs-btn;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-#high-weight-group{
-    border: solid 2px black;
-    margin: auto;
-    width: 50%;
-    height: 20%;
+#high-weight-group {
+  border: solid 2px black;
+  margin: auto;
+  width: 50%;
+  height: 20%;
 }
-#high-weight-label{
-    border: solid 2px black;
-    background-color: white;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    font-size: larger;
+#high-weight-label {
+  border: solid 2px black;
+  background-color: white;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
 }
-#high-weight{
-    border: solid 2px black;
-    background-color: white;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: x-large;
+#high-weight {
+  border: solid 2px black;
+  background-color: white;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: x-large;
 }
-#current-weight-group{
-    border: solid 2px black;
-    margin: auto;
-    width: 50%;
-    height: 20%;
+#current-weight-group {
+  border: solid 2px black;
+  margin: auto;
+  width: 50%;
+  height: 20%;
 }
-#current-weight-label{
-    border: solid 2px black;
-    background-color: white;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    font-size: larger;
+#current-weight-label {
+  border: solid 2px black;
+  background-color: white;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
 }
-#current-weight{
-    border: solid 2px black;
-    background-color: white;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: larger;
-    font-weight: bold;
-    font-size: x-large;
+#current-weight {
+  border: solid 2px black;
+  background-color: white;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: x-large;
 }
 #reset-button {
-    grid-area: rbutton;
-    border: solid 2px black;
-    background-color: white;
-    font-size: 3vw;
-    font-weight: bold;
-    margin: auto;
-    height: 20%;
-    width: 50%;
+  grid-area: rbutton;
+  border: solid 2px black;
+  background-color: white;
+  font-size: 3vw;
+  font-weight: bold;
+  margin: auto;
+  height: 20%;
+  width: 50%;
 }
-#game-area{
-    display: grid;
-    grid-template-rows: 1fr 4fr;
-    grid-template-columns: 2fr 1fr;
-    grid-area: gamearea;
-    justify-content: center;
-    align-items: center;
-    grid-template-areas: 
+#game-area {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  grid-template-columns: 2fr 1fr;
+  grid-area: gamearea;
+  justify-content: center;
+  align-items: center;
+  grid-template-areas:
     "hor-sbox cntdwn"
     "img-box vert-sbox";
 }
 #horizontal-slider-box {
-    grid-area: hor-sbox;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: hor-sbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#horizontal-back-bar{
-    border: solid 2px black;
-    background-color: white;
-    height: 80px;
-    width: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+#horizontal-back-bar {
+  border: solid 2px black;
+  background-color: white;
+  height: 80px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-#horizontal-left-winner-bar{
-    border: solid 2px black;
-    height: 80px;
-    width: 80px;
-    background-color: purple;
+#horizontal-left-winner-bar {
+  border: solid 2px black;
+  height: 80px;
+  width: 80px;
+  background-color: purple;
 }
-#horizontal-right-winner-bar{
-    border: solid 2px black;
-    height: 80px;
-    width: 80px;
-    background-color: purple;
+#horizontal-right-winner-bar {
+  border: solid 2px black;
+  height: 80px;
+  width: 80px;
+  background-color: purple;
 }
-#horizontal-slider{
-    position: absolute;
-    background-color: black;
-    height: 80px;
-    width: 5px;
+#horizontal-slider {
+  position: absolute;
+  background-color: black;
+  height: 80px;
+  width: 5px;
 }
-#countdown{
-    grid-area: cntdwn;
-    display: none;
+#countdown {
+  grid-area: cntdwn;
+  display: none;
 }
 #vertical-slider-box {
-    grid-area: vert-sbox;
-    display: flex;
-    justify-content: left;
-    align-items: center;
+  grid-area: vert-sbox;
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
-#vertical-back-bar{
-    border: solid 2px black;
-    background-color: white;
-    height: 400px;
-    width: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+#vertical-back-bar {
+  border: solid 2px black;
+  background-color: white;
+  height: 400px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-#vertical-winner-bar{
-    border: solid 2px black;
-    height: 80px;
-    width: 80px;
-    background-color: blue;
+#vertical-winner-bar {
+  border: solid 2px black;
+  height: 80px;
+  width: 80px;
+  background-color: blue;
 }
-#vertical-slider{
-    position: absolute;
-    background-color: black;
-    height: 5px;
-    width: 80px;
+#vertical-slider {
+  position: absolute;
+  background-color: black;
+  height: 5px;
+  width: 80px;
 }
-#image-box{
+#image-box {
+  grid-area: img-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+#message-box {
+  grid-area: mes-box;
+  font-size: 30px;
+  height: 100px;
+  text-align: center;
+}
+#mobile-buttons {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 60px 80px 1fr 1fr 23% 70px;
+    grid-template-areas:
+      "hdr hdr"
+      "mes-box mes-box"
+      "gamearea gamearea"
+      "gamearea gamearea"
+      "mob-btns mob-btns"
+      "scrs-btn scrs-btn";
+    height: 98vh;
+    width: auto;
+  }
+  #game-area {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+  }
+  header {
+    font-size: 50px;
+  }
+  #scores-and-button {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  #high-weight-group {
+    margin: 0;
+    width: auto;
+    height: auto;
+  }
+  #current-weight-group {
+    margin: 0;
+    height: auto;
+    width: auto;
+  }
+  #current-weight-label {
+    font-size: small;
+    padding: 2px;
+  }
+  #high-weight-label {
+    font-size: small;
+    padding: 2px;
+  }
+  #reset-button {
+    margin: 0;
+    height: auto;
+    width: auto;
+  }
+  #image-box {
     grid-area: img-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0;
-}
-#message-box{
-    grid-area: mes-box;
-    font-size: 30px;
-    height: 100px;
+  }
+  #message-box {
+    font-size: 25px;
     text-align: center;
+  }
+  #countdown {
+    color: red;
+    grid-area: cntdwn;
+    display: flex;
+    font-style: bold;
+    font-size: 80px;
+    align-items: center;
+    justify-content: right;
+  }
+  #vertical-slider-box {
+    justify-content: center;
+    align-items: end;
+    padding-left: 5px;
+  }
+  #vertical-back-bar {
+    height: 300px;
+    width: 60px;
+  }
+  #vertical-winner-bar {
+    height: 60px;
+    width: 60px;
+  }
+  #vertical-slider {
+    width: 60px;
+    height: 5px;
+  }
+  #horizontal-slider-box {
+    justify-content: center;
+    align-items: end;
+  }
+  #horizontal-back-bar {
+    height: 60px;
+    width: 300px;
+  }
+  #horizontal-left-winner-bar {
+    height: 60px;
+    width: 60px;
+  }
+  #horizontal-right-winner-bar {
+    height: 60px;
+    width: 60px;
+  }
+  #horizontal-slider {
+    height: 60px;
+  }
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  #image-box {
+    align-items: end;
+  }
+  #mobile-buttons {
+    grid-area: mob-btns;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: end;
+    align-items: center;
+    grid-template-areas:
+      "hor-sbox cntdown"
+      "img-box vert-sbox";
+  }
+  #left-button {
+    background-color: white;
+    max-width: 80px;
+    max-height: 80px;
+    margin: auto;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+  #right-button {
+    background-color: white;
+    margin: auto;
+    max-width: 80px;
+    max-height: 80px;
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+  #up-button {
+    background-color: white;
+    margin: auto;
+    max-width: 80px;
+    max-height: 80px;
+    grid-column: 2;
+    grid-row: 1;
+  }
+  #down-button {
+    background-color: white;
+    margin: auto;
+    max-width: 80px;
+    max-height: 80px;
+    grid-column: 2;
+    grid-row: 2;
+  }
+  #instructions-box {
+    position: absolute;
+    height: 90vh;
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+  #instructions {
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+  }
+  #instructions-title {
+    text-align: center;
+    font-size: 4vh;
+  }
+  .instruct-header {
+    text-align: center;
+    font-size: 3vh;
+  }
+  #insruct-but-box {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    width: auto;
+  }
+  #instruct-button {
+    width: 20%;
+    margin-bottom: 10px;
+    height: auto;
+    font-size: 2vh;
+    font-weight: bolder;
+  }
 }
-#mobile-buttons{
+
+@media (max-height: 700px) {
+  body {
+    grid-template-rows: 40px 50px 1fr 1fr 23% 50px;
+  }
+  header {
+    font-size: 40px;
+  }
+  img {
+    max-width: 80%;
+    max-height: 80%;
+  }
+  #message-box {
+    font-size: 20px;
+    text-align: center;
+  }
+  #current-weight {
+    font-size: medium;
+  }
+  #high-weight {
+    font-size: medium;
+  }
+  #countdown {
     display: none;
-}
-
-@media (max-width: 1000px){
-    body {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 60px 80px 1fr 1fr 23% 70px;
-        grid-template-areas: 
-        "hdr hdr"
-        "mes-box mes-box"
-        "gamearea gamearea"
-        "gamearea gamearea"
-        "mob-btns mob-btns"
-        "scrs-btn scrs-btn";
-        height: 98vh;
-        width: auto;
-    }
-    #game-area{
-        display: grid;
-        grid-template-rows: 1fr 3fr;
-    }
-    header{
-        font-size: 50px;
-    }
-    #scores-and-button{
-        flex-direction: row;
-        align-items: stretch;
-    }    
-    #high-weight-group{
-        margin: 0;
-        width: auto;
-        height: auto;
-    }
-    #current-weight-group{
-        margin: 0;
-        height: auto;
-        width: auto;
-    }
-    #current-weight-label{
-        font-size: small;
-        padding: 2px;
-    }
-    #high-weight-label{
-        font-size: small;
-        padding: 2px;
-    }
-    #reset-button {
-        margin: 0;
-        height: auto;
-        width: auto;
-    }
-    #image-box{
-        grid-area: img-box;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    #message-box{
-        font-size: 25px;
-        text-align: center;
-    }
-    #countdown{
-        color: red;
-        grid-area: cntdwn;
-        display: flex;
-        font-style: bold;
-        font-size: 80px;
-        align-items: center;
-        justify-content: right;
-    }
-    #vertical-slider-box {
-        justify-content: center;
-        align-items: end;
-        padding-left: 5px;
-    }
-    #vertical-back-bar{
-        height: 300px;
-        width: 60px;
-    }
-    #vertical-winner-bar{
-        height: 60px;
-        width: 60px;
-    }
-    #vertical-slider{
-        width: 60px;
-        height: 5px;
-    }
-    #horizontal-slider-box {
-        justify-content: center;
-        align-items: end;
-    }
-    #horizontal-back-bar{
-        height: 60px;
-        width: 300px;
-    }
-    #horizontal-left-winner-bar{
-            height: 60px;
-            width: 60px;
-    }
-    #horizontal-right-winner-bar{
-        height: 60px;
-        width: 60px;
-    }
-    #horizontal-slider{
-        height: 60px;
-    }        
-    img{
-        max-width: 100%;
-        max-height: 100%;
-    }
-    #image-box{
-        align-items: end;
-    }
-    #mobile-buttons{
-        grid-area: mob-btns;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        justify-content: end;
-        align-items: center;
-        grid-template-areas: 
-        'hor-sbox cntdown'
-        'img-box vert-sbox';
-    }
-    #left-button{
-        background-color: white;
-        max-width: 80px;
-        max-height: 80px;
-        margin: auto;
-        grid-column: 1;
-        grid-row: 1/ span 2;
-    }
-    #right-button{
-        background-color: white;
-        margin: auto;
-        max-width: 80px;
-        max-height: 80px;
-        grid-column: 3;
-        grid-row: 1/ span 2;
-    }
-    #up-button{
-        background-color: white;
-        margin: auto;
-        max-width: 80px;
-        max-height: 80px;
-        grid-column: 2;
-        grid-row: 1;
-    }
-    #down-button{
-        background-color: white;
-        margin: auto;
-        max-width: 80px;
-        max-height: 80px;
-        grid-column: 2;
-        grid-row: 2;
-    }
-    #instructions-box{
-        position: absolute;
-        height: 90vh;
-        width: 95vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: transparent;
-    }
-    #instructions{
-        display: flex;
-        flex-direction: column;
-        background-color: lavender;
-        font-size: large;
-    }
-    #instructions-title{
-        text-align: center;
-        font-size: 4vh;
-    }
-    .instruct-header{
-        text-align: center;
-        font-size:  3vh;
-    }
-    #insruct-but-box{
-        display: flex;
-        justify-content: center;
-        height: 60px;
-        width: auto;
-    }
-    #instruct-button{
-        width: 20%;
-        margin-bottom: 10px;
-        height: auto;
-        font-size: 2vh;
-        font-weight: bolder;
-    }
-
+  }
+  #instructions {
+    font-size: medium;
+  }
+  #instructions-title {
+    text-align: center;
+    font-size: 5vh;
+  }
+  #vertical-slider-box {
+    justify-content: center;
+    align-items: end;
+    padding-left: 5px;
+  }
+  #vertical-back-bar {
+    height: 200px;
+    width: 40px;
+  }
+  #vertical-winner-bar {
+    height: 60px;
+    width: 40px;
+  }
+  #vertical-slider {
+    width: 40px;
+    height: 5px;
+  }
+  #horizontal-slider-box {
+    justify-content: center;
+    align-items: end;
+  }
+  #horizontal-back-bar {
+    height: 40px;
+    width: 200px;
+  }
+  #horizontal-left-winner-bar {
+    height: 40px;
+    width: 60px;
+  }
+  #horizontal-right-winner-bar {
+    height: 40px;
+    width: 60px;
+  }
+  #horizontal-slider {
+    height: 40px;
+  }
 }
